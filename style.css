@@ -1,12 +1,47 @@
 body {
-            background: #FAFAFA;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden; /* Prevents scrolling */
-        }
-iframe {
-            border: none;
-            width: 100vw;
-            height: 100vh;
-        }
+    background-color: black;
+    margin-bottom: 200px;
+}
+
+h1 {    
+    font-size: 100;
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-family: Helvetica, sans-serif;
+    line-height: 0px;
+    margin-top: 250px;
+}
+
+h2 {
+    font-size: 25;
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-family: Helvetica, sans-serif;
+}
+
+p {
+    font-size: 25;
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-family: Helvetica, sans-serif;
+}
+
+a:link {
+    color: #0066CC;
+    text-decoration: none;
+}
+
+a:active {
+    color: #0066CC;
+}
+
+a:visited {
+    color: #0066CC;
+}
+
+a:hover {
+    color: white;
+}
