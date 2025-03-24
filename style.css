@@ -1,3 +1,9 @@
+iframe {
+  position: relative;
+  overflow: hidden;
+  height: calc(100% - 40px); /* Adjust as needed */
+}
+
 body {
     background-color: black;
     margin-bottom: 200px;
