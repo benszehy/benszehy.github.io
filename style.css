@@ -1,7 +1,10 @@
 iframe {
-  position: relative;
+  pointer-events: none; 
+  user-select: none;
+  height: 100vh; /* Adjust height as needed */
+  width: 100%;
+  border: none;
   overflow: hidden;
-  height: calc(100% - 40px); /* Adjust as needed */
 }
 
 body {
