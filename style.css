@@ -10,7 +10,13 @@ body {
 }
 
 a {
-  color: blue;
+  color: #000000;
+  text-decoration: none; /* optional: remove underline */
+  transition: color 0.2s ease; /* optional: smooth transition */
+}
+
+a:hover {
+  color: #FF5C00;
 }
 
 @font-face {
