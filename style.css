@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top left;
-  background-size: 200px; /* or use auto if needed */
+  background-size: 350px; /* or use auto if needed */
   padding-top: 150px;
   font-family: 'MyriadPro', sans-serif;
   line-height: 1.6;
