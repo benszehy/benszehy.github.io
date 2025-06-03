@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top left;
-  background-size: 200px; /* or use a value like 200px if needed */
+  background-size: 200px; /* or use auto if needed */
   padding-top: 150px;
   font-family: 'MyriadPro', sans-serif;
   line-height: 1.6;
@@ -17,6 +17,22 @@ a {
 
 a:hover {
   color: #FF5C00;
+}
+
+.subtext {
+  font-size: 0.85rem;       /* smaller font size */
+  line-height: 1.2;         /* tighter line spacing */
+  color: #000000;             /* base text color */
+}
+
+.subtext a {
+  color: #000000;             /* keep links black */
+  text-decoration: none;    /* optional: remove underline */
+  pointer-events: auto;     /* keep links clickable */
+}
+
+.subtext a:hover {
+  color: #000000;             /* no color change on hover */
 }
 
 @font-face {
