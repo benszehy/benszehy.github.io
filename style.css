@@ -5,7 +5,7 @@ body {
   background-position: top left;
   background-size: 200px; /* or use a value like 200px if needed */
   padding-top: 150px;
-  font-family: sans-serif;
+  font-family: 'MyriadPro', sans-serif;
   line-height: 1.6;
 }
 
