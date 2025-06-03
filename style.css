@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top left;
-  background-size: auto; /* or use a value like 200px if needed */
+  background-size: 200px; /* or use a value like 200px if needed */
   padding-top: 150px;
   font-family: sans-serif;
   line-height: 1.6;
