@@ -21,7 +21,7 @@ a:hover {
 
 .subtext {
   font-size: 0.85rem;       /* smaller font size */
-  line-height: 1.2;         /* tighter line spacing */
+  line-height: 0.8;         /* tighter line spacing */
   color: #000000;             /* base text color */
 }
 
