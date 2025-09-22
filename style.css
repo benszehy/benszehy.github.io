@@ -45,6 +45,11 @@ a:hover {
     max-width: 700px;
 }
 
+.img-full-width {
+    width: 100%;        /* full width of parent container */
+    height: 500px;
+}
+
 @font-face {
   font-family: 'MyriadPro';
   src: url('fonts/MyriadPro-Regular.woff2') format('woff2'),
