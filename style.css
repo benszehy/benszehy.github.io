@@ -35,6 +35,11 @@ a:hover {
   color: #000000;             /* no color change on hover */
 }
 
+.img-25-height {
+    height: 25%;
+    width: auto; /* Maintain aspect ratio */
+}
+
 @font-face {
   font-family: 'MyriadPro';
   src: url('fonts/MyriadPro-Regular.woff2') format('woff2'),
