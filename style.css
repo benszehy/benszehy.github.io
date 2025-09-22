@@ -36,8 +36,13 @@ a:hover {
 }
 
 .img-box-height {
-    width: 30%;            /* 30% of the parent container’s width */
+    width: 45%;            /* 30% of the parent container’s width */
     max-width: 500px;
+}
+
+.img-rectangle-height {
+    width: 45%;            /* 30% of the parent container’s width */
+    max-width: 1000px;
 }
 
 @font-face {
