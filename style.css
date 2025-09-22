@@ -35,8 +35,8 @@ a:hover {
   color: #000000;             /* no color change on hover */
 }
 
-.img-125-height {
-    height: 125px;
+.img-box-height {
+    height: 250px;
     width: auto; /* Maintain aspect ratio */
 }
 
