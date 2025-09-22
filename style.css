@@ -36,8 +36,8 @@ a:hover {
 }
 
 .img-box-height {
-    height: 5%;
-    width: auto; /* Maintain aspect ratio */
+    width: 30%;            /* 30% of the parent container’s width */
+    max-width: 500px;
 }
 
 @font-face {
