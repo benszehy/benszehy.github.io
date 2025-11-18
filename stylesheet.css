@@ -7,7 +7,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+
+    padding-top: 120px;
+    padding-bottom: 120px;
+
     background: #ffffff;
 }
 
@@ -18,17 +21,27 @@ body {
 
 a {
     color: #FF5C00;
-    text-decoration: none;
+    text-decoration: underline;   
     font-weight: 600;
 }
 
 .project {
-    margin: 24px 0;
-}
+    margin: 28px 0; 
 
 .project-title {
     font-weight: bold;
     margin-bottom: 3px;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;    /* reduced padding for mobile */
+        padding-bottom: 60px;
+    }
+
+    .container {
+        padding: 16px;
+    }
 }
 
 @font-face {
