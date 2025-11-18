@@ -9,15 +9,13 @@ body {
     align-items: center;
     text-align: center;
 
-    height: 100vh;          /* Make body exactly one screen height */
-    overflow: hidden;        /* Prevent scrolling on desktop/tablet */
-
+    min-height: 100vh;        /* Allows resizing, supports centering */
     background: #ffffff;
 }
 
 .container {
     max-width: 600px;
-    padding: 60px 20px;      /* Internal spacing instead of body padding */
+    padding: 60px 20px;
 }
 
 a {
@@ -35,15 +33,13 @@ a {
     margin-bottom: 3px;
 }
 
-/* MOBILE OVERRIDES */
-@media (max-width: 820px) {
+/* MOBILE / SMALL WINDOWS */
+@media (max-height: 750px), (max-width: 820px) {
     body {
-        overflow: auto;      /* Allow scrolling on mobile */
-        height: auto;
-        min-height: 100vh;
-        align-items: flex-start;
+        align-items: flex-start;   /* Prevents squashing on short windows */
         padding-top: 40px;
         padding-bottom: 40px;
+        overflow-y: auto;          /* Allow scroll when needed */
     }
 }
 
