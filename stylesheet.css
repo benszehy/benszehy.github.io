@@ -20,8 +20,12 @@ body {
 
 a {
     color: #FF5C00;
-    text-decoration: underline;
+    text-decoration: none;    /* <-- no underline normally */
     font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;   /* <-- underline on hover only */
 }
 
 .project {
