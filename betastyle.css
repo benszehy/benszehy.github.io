@@ -1,7 +1,3 @@
-/* -------------------
-    GLOBAL
--------------------- */
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,35 +12,26 @@ a {
   font-weight: 600;
 }
 
-a:hover {
-  opacity: 0.7;
-}
-
-/* -------------------
-    LAYOUT
--------------------- */
-
 .container {
-  display: flex;
-  gap: 60px;
   max-width: 1400px;
   margin: auto;
 }
 
-.left {
+.content {
+  display: flex;
+  gap: 60px;
+  margin-top: 30px;
+}
+
+.projects {
   flex: 1;
-  min-width: 300px;
 }
 
 .right {
   flex: 1;
   position: relative;
-  min-width: 300px;
+  min-height: 360px;
 }
-
-/* -------------------
-    IMAGE PREVIEW
--------------------- */
 
 .image-box {
   width: 100%;
@@ -58,46 +45,35 @@ a:hover {
   transition: opacity 0.4s ease, transform 0.4s ease;
   position: absolute;
   top: 0;
-  left: 0;
-  pointer-events: none;
 }
 
-/* ------------------------
-    HOVER → SHOW IMAGE
-    (Desktop & Tablet only)
-------------------------- */
-
+/* HOVER BEHAVIOR — WORKS NOW */
 @media (min-width: 769px) {
 
-  /* FRIENDS image */
   .project:nth-of-type(1):hover ~ .right .image-box {
     background-image: url("images/friends.png");
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Wander image */
   .project:nth-of-type(2):hover ~ .right .image-box {
     background-image: url("images/wander.png");
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Recollection image */
   .project:nth-of-type(3):hover ~ .right .image-box {
     background-image: url("images/recollection.png");
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Skyviewer image */
   .project:nth-of-type(4):hover ~ .right .image-box {
     background-image: url("images/skyviewer.png");
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* DailyUI image */
   .project:nth-of-type(5):hover ~ .right .image-box {
     background-image: url("images/dailyui.png");
     opacity: 1;
@@ -105,16 +81,11 @@ a:hover {
   }
 }
 
-/* -------------------
-    MOBILE
--------------------- */
-
 @media (max-width: 768px) {
-  .container {
+  .content {
     flex-direction: column;
   }
-
   .image-box {
-    display: none; /* Hover effect removed on mobile */
+    display: none;
   }
 }
