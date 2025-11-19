@@ -1,17 +1,4 @@
 /* CSS FILE (styles.css) */
-:root {
---text: #808080;
---link: #ff5c00;
-}
-
-
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Arial, sans-serif;
-color: var(--text);
-}
 
 
 html, body {
@@ -36,6 +23,7 @@ text-align: center;
 a {
 color: var(--link);
 text-decoration: none;
+font-weight: 700;
 }
 
 
@@ -62,8 +50,18 @@ line-height: 1.6;
 h2 {
 margin-top: 1.2rem;
 margin-bottom: 0.5rem;
+font-size: 22px;
+font-weight: 600;
 }
 
 
 @media (max-width: 768px) {
 .frame {
+height: auto;
+min-height: 100vh;
+padding: 3rem 1.5rem;
+}
+img.hero {
+width: 100%;
+}
+}
