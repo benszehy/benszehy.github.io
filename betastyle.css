@@ -1,0 +1,83 @@
+/* -------------------
+    GLOBAL
+-------------------- */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #808080;
+  line-height: 1.6;
+  padding: 40px;
+}
+
+a {
+  color: #FF5C00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* -------------------
+    LAYOUT
+-------------------- */
+
+.container {
+  display: flex;
+  gap: 60px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+}
+
+/* Image display */
+.image-box {
+  width: 100%;
+  height: 360px;
+  background: #d9d9d9;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #00000090;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Show hover image only on desktop */
+@media (min-width: 769px) {
+  .hover-trigger:hover + .image-box {
+    opacity: 1;
+  }
+}
+
+/* -------------------
+    MOBILE
+-------------------- */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-box {
+    display: none; /* Disable hover behavior on mobile */
+  }
+}
