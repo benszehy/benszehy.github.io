@@ -42,29 +42,66 @@ a:hover {
   min-width: 300px;
 }
 
-/* Image display */
+/* -------------------
+    IMAGE PREVIEW
+-------------------- */
+
 .image-box {
   width: 100%;
   height: 360px;
   background: #d9d9d9;
   border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: 600;
-  color: #00000090;
+  background-size: cover;
+  background-position: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
 }
 
-/* Show hover image only on desktop */
+/* ------------------------
+    HOVER → SHOW IMAGE
+    (Desktop & Tablet only)
+------------------------- */
+
 @media (min-width: 769px) {
-  .hover-trigger:hover + .image-box {
+
+  /* FRIENDS image */
+  .project:nth-of-type(1):hover ~ .right .image-box {
+    background-image: url("images/friends.png");
     opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Wander image */
+  .project:nth-of-type(2):hover ~ .right .image-box {
+    background-image: url("images/wander.png");
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Recollection image */
+  .project:nth-of-type(3):hover ~ .right .image-box {
+    background-image: url("images/recollection.png");
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Skyviewer image */
+  .project:nth-of-type(4):hover ~ .right .image-box {
+    background-image: url("images/skyviewer.png");
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DailyUI image */
+  .project:nth-of-type(5):hover ~ .right .image-box {
+    background-image: url("images/dailyui.png");
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -78,6 +115,6 @@ a:hover {
   }
 
   .image-box {
-    display: none; /* Disable hover behavior on mobile */
+    display: none; /* Hover effect removed on mobile */
   }
 }
