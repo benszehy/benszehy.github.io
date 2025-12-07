@@ -1,0 +1,141 @@
+/* ------------------------------ */
+/* FONT FACES (Same as homepage) */
+/* ------------------------------ */
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('fonts/MyriadPro-Regular.woff2') format('woff2'),
+       url('fonts/MyriadPro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('fonts/MyriadPro-Bold.woff2') format('woff2'),
+       url('fonts/MyriadPro-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyriadProCondensed';
+  src: url('fonts/MyriadPro-Cond.woff2') format('woff2'),
+       url('fonts/MyriadPro-Cond.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyriadProCondensed';
+  src: url('fonts/MyriadPro-BoldCond.woff2') format('woff2'),
+       url('fonts/MyriadPro-BoldCond.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ------------------------------ */
+/* GLOBAL */
+/* ------------------------------ */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: 'MyriadPro', sans-serif;
+}
+
+/* ------------------------------ */
+/* MENU — identical to homepage */
+/* ------------------------------ */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "MyriadProCondensed", sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.5px;
+
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+
+    padding-top: 20px;
+    z-index: 999;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a:active {
+    color: #FF5C00;
+}
+
+.menu span {
+    opacity: 0.5;
+}
+
+/* ------------------------------ */
+/* PROJECT CONTENT */
+/* ------------------------------ */
+
+.project-wrapper {
+    margin-top: 100px; /* spacing under menu */
+    text-align: center;
+    padding: 20px;
+}
+
+.project-title {
+    font-family: "MyriadProCondensed", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    margin-bottom: 40px;
+}
+
+/* Center mockup image */
+.mockup-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.mockup-container img {
+    width: clamp(250px, 40vw, 500px);
+    height: auto;
+}
+
+/* Hypothesis section */
+.text-section {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+}
+
+.text-section h2 {
+    font-family: "MyriadProCondensed", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    font-family: "MyriadPro", sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    line-height: 1.6;
+}
+
+/* Very small screens */
+@media (max-width: 450px) {
+    .project-wrapper {
+        margin-top: 90px;
+    }
+}
