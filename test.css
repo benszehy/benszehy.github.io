@@ -49,28 +49,27 @@ body {
 }
 
 /* ------------------------------ */
-/* NAVIGATION */
+/* NAVIGATION — FIXED AT TOP */
 /* ------------------------------ */
 
 .menu {
-    position: fixed;          /* keeps menu at the top during scroll */
+    position: fixed;           /* stays at top on scroll */
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    
+
     font-family: "MyriadProCondensed", sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem); /* responsive */
     letter-spacing: 0.5px;
 
     display: flex;
     gap: 6px;
     justify-content: center;
 
-    padding-top: 20px;        /* keeps spacing similar to your design */
-    z-index: 999;             /* ensures the text stays above content */
-
-    background: none;         /* explicitly removes background */
+    padding-top: 20px;
+    z-index: 999;               /* ensures text stays above content */
+    background: none;           /* no background */
 }
 
 .menu a {
@@ -81,7 +80,7 @@ body {
 
 .menu a:hover,
 .menu a:active {
-    color: #FF5C00; /* hover + click color */
+    color: #FF5C00;             /* hover & click color */
 }
 
 .menu span {
@@ -89,7 +88,7 @@ body {
 }
 
 /* ------------------------------ */
-/* CENTER CONTENT */
+/* MAIN CENTER CONTENT */
 /* ------------------------------ */
 
 .center-container {
@@ -106,24 +105,32 @@ body {
     font-weight: 700;
     color: black;
     text-decoration: none;
-    font-size: clamp(2.5rem, 6vw, 6rem);
-    line-height: 1.0; /* tighter spacing */
-    margin: 0.1em 0; /* reduced gap */
+
+    font-size: clamp(1.8rem, 6vw, 6rem); /* responsive shrinking */
+    line-height: 1.0;
+    margin: 0.1em 0;                     /* reduced spacing */
+
     transition: color 0.2s ease;
 }
 
 .project:hover,
 .project:active {
-    color: #FF5C00;
+    color: #FF5C00; /* hover & click */
 }
 
 /* ------------------------------ */
-/* MOBILE ADJUSTMENTS */
+/* EXTRA SMALL SCREEN OPTIMIZATION */
 /* ------------------------------ */
 
+@media (max-width: 400px) {
+    .project {
+        font-size: clamp(1.4rem, 8vw, 4rem);
+    }
+}
+
+/* Optional: Adjust menu spacing on tiny screens */
 @media (max-width: 480px) {
     .menu {
-        font-size: 0.9rem;
-        margin-top: 16px;
+        padding-top: 16px;
     }
 }
