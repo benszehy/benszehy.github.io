@@ -133,6 +133,11 @@ body {
     line-height: 1.6;
 }
 
+.img-full-width {
+    width: 100%;        /* full width of parent container */
+    height: auto;
+}
+
 /* Text-section hyperlinks */
 .text-section a {
     color: #FF5C00;
