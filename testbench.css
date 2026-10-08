@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Ben Sze – portfolio
+   Shared stylesheet for index.html and project.html
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Colour */
+  --black: #000000;
+  --grey: #aeaeae;
+  --line: #e6e6e6;
+  --line-hover: #cfcfcf;
+  --tile: #fafafa;
+  --page: #ffffff;
+
+  /* Type: --fs-xl is the largest size on the site (Ben Sze, project page text).
+     --fs-sm is half of it (project title + description on the homepage).
+     12px floor keeps the small text readable on narrow windows. */
+  --fs-xl: clamp(20px, 1.35vw, 42px);
+  --fs-sm: max(12px, calc(var(--fs-xl) / 2));
+
+  /* Layout (all scale with the window) */
+  --pad-x: 6.3vw;        /* left/right page margin */
+  --gap: 5.7vw;          /* gap between project cards (rows + columns) */
+  --header-top: 7.4vw;   /* space above "Ben Sze" */
+  --header-gap: 5.9vw;   /* space between "Ben Sze" and the first image */
+  --radius: clamp(8px, 0.7vw, 18px);
+}
+
+/* Mobile / H5 / any vertical window */
+@media (max-width: 800px), (orientation: portrait) {
+  :root {
+    --fs-xl: clamp(22px, 5.6vw, 40px);
+    --pad-x: 10vw;
+    --gap: 14vw;
+    --header-top: 18vw;
+    --header-gap: 13vw;
+    --radius: 3vw;
+  }
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-xl);
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p,
+figure {
+  margin: 0;
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 6px;
+}
+
+/* ---------- Header (identical position on every page) ---------- */
+.site-header {
+  padding: var(--header-top) var(--pad-x) var(--header-gap);
+}
+
+.site-name {
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  color: var(--black);
+}
+
+/* ==========================================================================
+   HOME  (index.html)
+   ========================================================================== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  padding: 0 var(--pad-x) calc(var(--gap) * 1.5);
+  margin: 0;
+  list-style: none;
+}
+
+/* Whole card is one link: image, title and description all click through */
+.project-link {
+  display: block;
+}
+
+.project-tile {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease;
+}
+
+.project-link:hover .project-tile,
+.project-link:focus-visible .project-tile {
+  border-color: var(--line-hover);
+}
+
+.project-title {
+  margin-top: 1.3vw;
+  font-size: var(--fs-sm);
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.project-desc {
+  margin-top: 0.8vw;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--grey);
+}
+
+@media (max-width: 800px), (orientation: portrait) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .project-title {
+    margin-top: 4vw;
+  }
+
+  .project-desc {
+    margin-top: 2vw;
+  }
+}
+
+/* ==========================================================================
+   PROJECT PAGE  (project.html)
+   ========================================================================== */
+.project-page {
+  padding-bottom: 12vw;
+}
+
+/* All text on this page is the largest size */
+.project-page h1,
+.project-page p {
+  font-size: var(--fs-xl);
+}
+
+.hero {
+  width: 51vw;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Centred text column, left-aligned text */
+.text-col {
+  width: 36vw;
+  margin: 0 auto;
+}
+
+.intro {
+  margin-top: 3.3vw;
+}
+
+.page-title {
+  color: var(--black);
+  line-height: 1.2;
+}
+
+.intro p {
+  margin-top: 2.6vw;
+  color: var(--grey);
+}
+
+/* Two images side by side */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  width: 59vw;
+  margin: 7vw auto 0;
+}
+
+.gallery figure {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.body-copy {
+  margin-top: 3.3vw;
+}
+
+.body-copy p {
+  color: var(--grey);
+}
+
+.body-copy p + p {
+  margin-top: 1.3em;
+}
+
+@media (max-width: 800px), (orientation: portrait) {
+  .hero,
+  .text-col,
+  .gallery {
+    width: auto;
+    margin-left: var(--pad-x);
+    margin-right: var(--pad-x);
+  }
+
+  .intro {
+    margin-top: 7vw;
+  }
+
+  .intro p {
+    margin-top: 3.5vw;
+  }
+
+  /* Stacked + staggered: left image first, then right image */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 6vw;
+    margin-top: 12vw;
+  }
+
+  .gallery figure {
+    width: 80%;
+  }
+
+  .gallery figure:nth-child(1) {
+    align-self: flex-start;
+  }
+
+  .gallery figure:nth-child(2) {
+    align-self: flex-end;
+  }
+
+  .body-copy {
+    margin-top: 10vw;
+  }
+
+  .project-page {
+    padding-bottom: 20vw;
+  }
+}
