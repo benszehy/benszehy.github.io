@@ -8,8 +8,7 @@
   /* Colour */
   --black: #000000;
   --grey: #aeaeae;
-  --line: #e6e6e6;
-  --line-hover: #cfcfcf;
+  --line: #aeaeae;
   --tile: #fafafa;
   --page: #ffffff;
 
@@ -120,12 +119,13 @@ a:focus-visible {
   background: var(--tile);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  transition: border-color 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
+/* Outline thickens from 1px to 2px on hover (no layout shift) */
 .project-link:hover .project-tile,
 .project-link:focus-visible .project-tile {
-  border-color: var(--line-hover);
+  box-shadow: 0 0 0 1px var(--line);
 }
 
 .project-title {
@@ -170,7 +170,7 @@ a:focus-visible {
 }
 
 .hero {
-  width: 51vw;
+  width: 64vw;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -181,7 +181,7 @@ a:focus-visible {
 
 /* Centred text column, left-aligned text */
 .text-col {
-  width: 36vw;
+  width: 48vw;
   margin: 0 auto;
 }
 
@@ -204,7 +204,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2vw;
-  width: 59vw;
+  width: 76vw;
   margin: 7vw auto 0;
 }
 
@@ -245,7 +245,7 @@ a:focus-visible {
     margin-top: 3.5vw;
   }
 
-  /* Stacked + staggered: left image first, then right image */
+  /* Stacked, same width as the hero, centred */
   .gallery {
     display: flex;
     flex-direction: column;
@@ -254,15 +254,7 @@ a:focus-visible {
   }
 
   .gallery figure {
-    width: 80%;
-  }
-
-  .gallery figure:nth-child(1) {
-    align-self: flex-start;
-  }
-
-  .gallery figure:nth-child(2) {
-    align-self: flex-end;
+    width: 100%;
   }
 
   .body-copy {
