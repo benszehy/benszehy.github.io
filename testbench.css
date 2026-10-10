@@ -9,7 +9,7 @@
   --black: #000000;
   --grey: #aeaeae;
   --line: #aeaeae;
-  --outline: 0.5px;      /* image outline thickness */
+  --outline: 0.25px;     /* image outline thickness */
   --tile: #fafafa;
   --page: #ffffff;
 
@@ -21,9 +21,15 @@
 
   /* Layout (all scale with the window) */
   --pad-x: 6.3vw;        /* left/right page margin */
-  --gap: 5.7vw;          /* gap between project cards (rows + columns) */
   --header-top: 7.4vw;   /* space above "Ben Sze" */
-  --header-gap: 5.9vw;   /* space between "Ben Sze" and the first image */
+
+  /* ONE spacing value used everywhere:
+     - Ben Sze -> first image
+     - row of tiles -> next row, and column gaps
+     - last description -> bottom of page
+     - project page: image <-> text, title <-> text, text <-> image, last text -> bottom
+     (The small tile -> title -> description spacing on the homepage is separate.) */
+  --space: 5.7vw;
   --radius: clamp(8px, 0.7vw, 18px);
 }
 
@@ -32,9 +38,8 @@
   :root {
     --fs-xl: clamp(22px, 5.6vw, 40px);
     --pad-x: 10vw;
-    --gap: 14vw;
     --header-top: 18vw;
-    --header-gap: 13vw;
+    --space: 13vw;
     --radius: 3vw;
   }
 }
@@ -76,6 +81,27 @@ img {
   object-fit: cover;
 }
 
+/* ---------- Image outline ----------
+   Drawn as an inset shadow on an overlay, because browsers can't draw a CSS
+   border thinner than one physical pixel but can draw a fractional shadow.
+   Thickness is controlled by --outline in :root. */
+.project-tile,
+.hero,
+.gallery figure {
+  position: relative;
+}
+
+.project-tile::after,
+.hero::after,
+.gallery figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 var(--outline) var(--line);
+  pointer-events: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -88,7 +114,7 @@ a:focus-visible {
 
 /* ---------- Header (identical position on every page) ---------- */
 .site-header {
-  padding: var(--header-top) var(--pad-x) var(--header-gap);
+  padding: var(--header-top) var(--pad-x) var(--space);
 }
 
 .site-name {
@@ -103,8 +129,8 @@ a:focus-visible {
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap);
-  padding: 0 var(--pad-x) calc(var(--gap) * 1.5);
+  gap: var(--space);
+  padding: 0 var(--pad-x) var(--space);
   margin: 0;
   list-style: none;
 }
@@ -118,15 +144,13 @@ a:focus-visible {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--tile);
-  border: var(--outline) solid var(--line);
   border-radius: var(--radius);
-  transition: box-shadow 0.2s ease;
 }
 
 /* Outline doubles in thickness on hover (no layout shift) */
-.project-link:hover .project-tile,
-.project-link:focus-visible .project-tile {
-  box-shadow: 0 0 0 var(--outline) var(--line);
+.project-link:hover .project-tile::after,
+.project-link:focus-visible .project-tile::after {
+  box-shadow: inset 0 0 0 calc(var(--outline) * 2) var(--line);
 }
 
 .project-title {
@@ -161,7 +185,7 @@ a:focus-visible {
    PROJECT PAGE  (project.html)
    ========================================================================== */
 .project-page {
-  padding-bottom: 12vw;
+  padding-bottom: var(--space);
 }
 
 /* All text on this page is the largest size */
@@ -176,7 +200,6 @@ a:focus-visible {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--tile);
-  border: var(--outline) solid var(--line);
   border-radius: var(--radius);
 }
 
@@ -187,7 +210,7 @@ a:focus-visible {
 }
 
 .intro {
-  margin-top: 3.3vw;
+  margin-top: var(--space);
 }
 
 .page-title {
@@ -196,7 +219,7 @@ a:focus-visible {
 }
 
 .intro p {
-  margin-top: 2.6vw;
+  margin-top: var(--space);
   color: var(--grey);
 }
 
@@ -206,19 +229,18 @@ a:focus-visible {
   grid-template-columns: 1fr 1fr;
   gap: 2vw;
   width: 76vw;
-  margin: 7vw auto 0;
+  margin: var(--space) auto 0;
 }
 
 .gallery figure {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--tile);
-  border: var(--outline) solid var(--line);
   border-radius: var(--radius);
 }
 
 .body-copy {
-  margin-top: 3.3vw;
+  margin-top: var(--space);
 }
 
 .body-copy p {
@@ -238,31 +260,14 @@ a:focus-visible {
     margin-right: var(--pad-x);
   }
 
-  .intro {
-    margin-top: 7vw;
-  }
-
-  .intro p {
-    margin-top: 3.5vw;
-  }
-
   /* Stacked, same width as the hero, centred */
   .gallery {
     display: flex;
     flex-direction: column;
     gap: 6vw;
-    margin-top: 12vw;
   }
 
   .gallery figure {
     width: 100%;
-  }
-
-  .body-copy {
-    margin-top: 10vw;
-  }
-
-  .project-page {
-    padding-bottom: 20vw;
   }
 }
