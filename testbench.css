@@ -270,4 +270,240 @@ a:focus-visible {
   .gallery figure {
     width: 100%;
   }
+}@media (max-width: 800px), (orientation: portrait) {
+  :root {
+    --fs-xl: clamp(22px, 5.6vw, 40px);
+    --pad-x: 10vw;
+    --header-top: 18vw;
+    --space: 13vw;
+    --radius: 3vw;
+  }
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-xl);
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p,
+figure {
+  margin: 0;
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Image outline ----------
+   Drawn as an inset shadow on an overlay, because browsers can't draw a CSS
+   border thinner than one physical pixel but can draw a fractional shadow.
+   Thickness is controlled by --outline in :root. */
+.project-tile,
+.hero,
+.gallery figure {
+  position: relative;
+}
+
+.project-tile::after,
+.hero::after,
+.gallery figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 var(--outline) var(--line);
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 6px;
+}
+
+/* ---------- Header (identical position on every page) ---------- */
+.site-header {
+  padding: var(--header-top) var(--pad-x) var(--space);
+}
+
+.site-name {
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  color: var(--black);
+}
+
+/* ==========================================================================
+   HOME  (index.html)
+   ========================================================================== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space);
+  padding: 0 var(--pad-x) var(--space);
+  margin: 0;
+  list-style: none;
+}
+
+/* Whole card is one link: image, title and description all click through */
+.project-link {
+  display: block;
+}
+
+.project-tile {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--tile);
+  border-radius: var(--radius);
+}
+
+/* Outline doubles in thickness on hover (no layout shift) */
+.project-link:hover .project-tile::after,
+.project-link:focus-visible .project-tile::after {
+  box-shadow: inset 0 0 0 calc(var(--outline) * 2) var(--line);
+}
+
+.project-title {
+  margin-top: 1.3vw;
+  font-size: var(--fs-sm);
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.project-desc {
+  margin-top: 0.8vw;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--grey);
+}
+
+@media (max-width: 800px), (orientation: portrait) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .project-title {
+    margin-top: 4vw;
+  }
+
+  .project-desc {
+    margin-top: 2vw;
+  }
+}
+
+/* ==========================================================================
+   PROJECT PAGE  (project.html)
+   ========================================================================== */
+.project-page {
+  padding-bottom: var(--space);
+}
+
+/* All text on this page is the largest size */
+.project-page h1,
+.project-page p {
+  font-size: var(--fs-xl);
+}
+
+.hero {
+  width: 64vw;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--tile);
+  border-radius: var(--radius);
+}
+
+/* Centred text column, left-aligned text */
+.text-col {
+  width: 48vw;
+  margin: 0 auto;
+}
+
+.intro {
+  margin-top: var(--space);
+}
+
+.page-title {
+  color: var(--black);
+  line-height: 1.2;
+}
+
+.intro p {
+  margin-top: var(--space);
+  color: var(--grey);
+}
+
+/* Two images side by side */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  width: 76vw;
+  margin: var(--space) auto 0;
+}
+
+.gallery figure {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--tile);
+  border-radius: var(--radius);
+}
+
+.body-copy {
+  margin-top: var(--space);
+}
+
+.body-copy p {
+  color: var(--grey);
+}
+
+.body-copy p + p {
+  margin-top: 1.3em;
+}
+
+@media (max-width: 800px), (orientation: portrait) {
+  .hero,
+  .text-col,
+  .gallery {
+    width: auto;
+    margin-left: var(--pad-x);
+    margin-right: var(--pad-x);
+  }
+
+  /* Stacked, same width as the hero, centred */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 6vw;
+  }
+
+  .gallery figure {
+    width: 100%;
+  }
 }
